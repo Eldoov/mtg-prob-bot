@@ -170,4 +170,4 @@ async def detail(ctx, *, content: str):
 
 
 # 6. Run the bot with your token
-bot.run("MTMzMTUxNzU2ODYwNjkyODkwNw.Gmdwhd.zP_jnEXyogn3xGx-xpUlKrtWiOnNXIF0vLfZcw")
+bot.run("")
