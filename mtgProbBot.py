@@ -2,6 +2,9 @@ import discord, ast
 from Algorithm import getCombos, factCalc
 from main import initiateDate, getSingleProb, getAllProb
 from discord.ext import commands
+import os
+
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
 # 1. Set up Intents
 intents = discord.Intents.default()
@@ -170,4 +173,4 @@ async def detail(ctx, *, content: str):
 
 
 # 6. Run the bot with your token
-bot.run("")
+bot.run(TOKEN)
