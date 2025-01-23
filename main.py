@@ -57,8 +57,7 @@ def getAllProb(deckInfo, sampleInfo):
         deckInfo.append(remainingCardsInDeck)
         sampleInfo.append(0)
         remainingCardsInDeck = 0
-    print(deckInfo, sampleInfo)
-    print(remainingCardsInDeck)
+        length += 1
 
     if remainingSample > 0:
         all_combos = getCombos(totalDrawCards, sampleInfo)
@@ -66,7 +65,7 @@ def getAllProb(deckInfo, sampleInfo):
             prob, comb, Total = getSingleProb(totalCards, totalDrawCards, remainingCardsInDeck,
                                  remainingSample, length, deckInfo, combo)
             totalProb = totalProb + prob
-            probInWords = f"{prob:.5%}"
+            probInWords = f"{prob:.4%}"
             if prob > 0:
                 message_text = " ".join(map(str, ("When", combo, "Prob is ", comb, "/", Total, "=", probInWords)))
                 botMsg.append(message_text)
@@ -77,9 +76,9 @@ def getAllProb(deckInfo, sampleInfo):
         print("the prob is ", comb, "/", Total, "=", prob)
     botMsg.append(f"The total prob for all is {totalProb:.5%}")
     final_output = "\n".join(botMsg)
-    simpRes = f"{totalProb:.5%}"
+    simpRes = f"{totalProb:.4%}"
     return final_output, simpRes
 
 
-getAllProb([99, 40, 15, 10, 34], [7, 3, 0, 0,0])
-getAllProb([99, 40, 15, 10], [7, 3, 0, 0])
+#getAllProb([99, 40, 15, 10, 34], [7, 3, 0, 0,0])
+#getAllProb([99, 40, 15, 10], [7, 3, 0, 0])
