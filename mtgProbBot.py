@@ -1,7 +1,8 @@
 import discord
-import os
 from main import getAllProb
 from discord.ext import commands
+import os
+print(os)
 
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
