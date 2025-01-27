@@ -47,9 +47,8 @@ def getAllProb(deckInfo, sampleInfo):
      remainingSample, length) = initiateDate(deckInfo, sampleInfo)
     totalProb = 0
     botMsg = []
-    message_text = ""
 
-    if remainingCardsInDeck < 0 or  remainingSample < 0:
+    if remainingCardsInDeck < 0 or remainingSample < 0:
         errorStr = "NO, STAHP~~~~~"
         return errorStr
 
@@ -65,7 +64,7 @@ def getAllProb(deckInfo, sampleInfo):
             prob, comb, Total = getSingleProb(totalCards, totalDrawCards, remainingCardsInDeck,
                                  remainingSample, length, deckInfo, combo)
             totalProb = totalProb + prob
-            probInWords = f"{prob:.4%}"
+            probInWords = f"{prob:.3%}"
             if prob > 0:
                 message_text = " ".join(map(str, ("When", combo, "Prob is ", comb, "/", Total, "=", probInWords)))
                 botMsg.append(message_text)
@@ -73,12 +72,13 @@ def getAllProb(deckInfo, sampleInfo):
     else:
         prob, comb, Total = getSingleProb(totalCards, totalDrawCards, remainingCardsInDeck,
                                           remainingSample, length, deckInfo, sampleInfo)
-        print("the prob is ", comb, "/", Total, "=", prob)
-    botMsg.append(f"The total prob for all is {totalProb:.5%}")
+        totalProb = prob
+        #print("the prob is ", comb, "/", Total, "=", totalProb)
+    botMsg.append(f"The total prob for all is {totalProb:.3%}")
     final_output = "\n".join(botMsg)
-    simpRes = f"{totalProb:.4%}"
+    simpRes = f"{totalProb:.3%}"
+    print(simpRes)
     return final_output, simpRes
 
 
-#getAllProb([99, 40, 15, 10, 34], [7, 3, 0, 0,0])
-#getAllProb([99, 40, 15, 10], [7, 3, 0, 0])
+getAllProb([99, 40], [7, 7])
